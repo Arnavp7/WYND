@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>WYND | Master Your Biology</title>
+    <meta name="description" content="Access high-signal Protocols, Supplement stacks, and Notion Templates for biological mastery. Upgrade your performance with WYND.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WYND | Master Your Biology">
+    <meta property="og:description" content="Access high-signal Protocols, Supplement stacks, and Notion Templates for biological mastery.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Arnavp7/wynd-protocol/main/WYND%20Logo.png">
+    <meta property="og:url" content="https://wyndco.in">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WYND | Master Your Biology">
+    <meta name="twitter:description" content="Access high-signal Protocols, Supplement stacks, and Notion Templates for biological mastery.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Arnavp7/wynd-protocol/main/WYND%20Logo.png">
+
     <style>
         /* --- CORE AESTHETICS --- */
         :root {
@@ -401,10 +416,10 @@
 
     <script>
         // --- 1. SEARCH DATABASE ---
-       const articles = [
-    { title: "Cold Exposure: Physiology & Protocols", url: "cold-exposure.html" },
-    { title: "Smelling Salts: Neurological Arousal & Performance", url: "smelling-salts.html" }
-];
+        const articles = [
+            { title: "Cold Exposure: Physiology & Protocols", url: "cold-exposure.html" },
+            { title: "Smelling Salts: Neurological Arousal & Performance", url: "smelling-salts.html" }
+        ];
 
         // --- 2. SEARCH LOGIC ---
         const searchInput = document.getElementById('searchInput');
@@ -482,7 +497,6 @@
             submitBtn.textContent = "JOINING...";
             submitBtn.disabled = true;
 
-            // *** REPLACE WITH YOUR NEWSLETTER WEBHOOK URL ***
             const webhookUrl = 'https://ap1712.app.n8n.cloud/webhook/14773769-8d46-4281-9747-0782e64475c6'; 
 
             try {
@@ -505,7 +519,7 @@
             }
         });
 
-        // --- 5. CONTACT FORM WEBHOOK (NEW!) ---
+        // --- 5. CONTACT FORM WEBHOOK ---
         const contactForm = document.getElementById('contact-form');
         const contactName = document.getElementById('contact-name');
         const contactEmail = document.getElementById('contact-email');
@@ -516,18 +530,14 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Gather Data
             const name = contactName.value;
             const email = contactEmail.value;
             const message = contactMsg.value;
             const source = "contact_form";
 
-            // UX Updates
             contactBtn.textContent = "SENDING...";
             contactBtn.disabled = true;
 
-            // *** REPLACE WITH YOUR CONTACT WEBHOOK URL ***
-            // This should be a DIFFERENT n8n workflow than the newsletter one
             const contactWebhookUrl = 'https://ap1712.app.n8n.cloud/webhook/28b26e46-a9b9-4864-a94f-efadef9ce11c'; 
 
             try {
@@ -543,7 +553,6 @@
                     })
                 });
 
-                // Success
                 contactMessage.style.color = "#FFD700";
                 contactMessage.textContent = "Message Received. We will respond shortly.";
                 contactName.value = "";
@@ -551,7 +560,6 @@
                 contactMsg.value = "";
                 contactBtn.textContent = "SENT";
                 
-                // Reset button after 3 seconds
                 setTimeout(() => {
                     contactBtn.textContent = "Send Message";
                     contactBtn.disabled = false;
@@ -569,6 +577,3 @@
     </script>
 </body>
 </html>
-
-
-
