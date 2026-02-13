@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocol Library | WYND</title>
     <style>
-        /* --- CORE AESTHETICS --- */
         :root {
             --bg-color: #050505;
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
-            --accent: #FFD700; 
+            --accent: #FFD700;
             --glass-panel: rgba(255, 255, 255, 0.03);
             --border-light: rgba(255, 255, 255, 0.1);
         }
@@ -20,8 +19,7 @@
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* --- HEADER --- */
@@ -29,82 +27,204 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 3rem;
+            padding: 1rem 3rem;
             border-bottom: 1px solid var(--border-light);
-            background: rgba(5,5,5,0.95);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .nav-link {
+        .logo-link img { height: 45px; transition: 0.3s; }
+        .logo-link:hover img { filter: drop-shadow(0 0 10px var(--accent)); }
+
+        .back-home {
             color: var(--text-secondary);
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             font-size: 0.9rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
-        .nav-link:hover { color: var(--text-primary); }
 
-        /* --- LIBRARY LIST --- */
-        .library-container {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
+        .back-home:hover { color: var(--text-primary); }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            letter-spacing: -1px;
+        /* --- SEARCH SECTION --- */
+        .search-hero {
             text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
         }
 
-        /* List Item Style */
-        .protocol-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem;
-            border: 1px solid var(--border-light);
-            margin-bottom: 1rem;
-            border-radius: 8px;
+        .library-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-search {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
             background: var(--glass-panel);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            outline: none;
             transition: 0.3s;
-            text-decoration: none;
-            color: var(--text-primary);
         }
 
-        .protocol-item:hover {
+        .main-search:focus {
             border-color: var(--accent);
-            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
-        .item-info h2 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
-        .item-info p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
-        
-        .arrow { color: var(--accent); font-size: 1.5rem; }
+        /* --- PROTOCOL GRID --- */
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .protocol-card {
+            background: var(--glass-panel);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .protocol-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(255, 215, 0, 0.02);
+        }
+
+        .protocol-card .tag {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .protocol-card h3 {
+            font-size: 1.4rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .protocol-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .read-time {
+            font-size: 0.8rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            color: #444;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="nav-link">← Home</a>
-        <img src="WYND Logo.png" alt="WYND" height="45">
-        <div style="width: 50px;"></div> </header>
+        <a href="index.html" class="logo-link">
+            <img src="WYND Logo.png" alt="WYND">
+        </a>
+        <a href="index.html" class="back-home">← Home</a>
+    </header>
 
-    <div class="library-container">
-        <h1>THE ARCHIVE</h1>
+    <section class="search-hero">
+        <h1 class="library-title">PROTOCOL LIBRARY</h1>
+        <div class="search-container">
+            <input type="text" id="libSearch" class="main-search" placeholder="Filter by mechanism (e.g. Dopamine, Cold, Arousal)...">
+        </div>
+    </section>
 
-        <a href="cold-exposure.html" class="protocol-item">
-            <div class="item-info">
-                <h2>Cold Exposure: The Complete Physiology</h2>
-                <p>Hormonal optimization, fat loss mechanics, and the "Soberg Principle."</p>
+    <main class="library-grid" id="protocolGrid">
+        
+        <a href="cold-exposure.html" class="protocol-card" data-title="cold exposure physiology dopamine">
+            <div>
+                <span class="tag">Recovery</span>
+                <h3>Thermodynamics of Biology: The Cold Exposure Guide</h3>
+                <p>A precise lever for neurochemical manipulation, metabolic furnace activation, and dopamine baseline regulation.</p>
             </div>
-            <span class="arrow">→</span>
+            <span class="read-time">8 MIN READ</span>
         </a>
 
+        <a href="smelling-salts.html" class="protocol-card" data-title="smelling salts ammonia neurological arousal">
+            <div>
+                <span class="tag">Neurobiology</span>
+                <h3>Smelling Salts: Chemical Triggering of the Sympathetic Drive</h3>
+                <p>Leveraging localized chemical irritation to override systemic fatigue and maximize motor unit recruitment.</p>
+            </div>
+            <span class="read-time">10 MIN READ</span>
+        </a>
+
+        <div class="protocol-card" style="opacity: 0.3; cursor: default;">
+            <div>
+                <span class="tag">Coming Soon</span>
+                <h3>Dopamine Detoxification: Reality vs. Bio-mythology</h3>
+                <p>The neurobiology of receptor sensitivity and how to actually reset your baseline.</p>
+            </div>
         </div>
 
-</body>
+    </main>
 
+    <footer>
+        © 2026 WYND Protocol. All research evidence-based.
+    </footer>
+
+    <script>
+        // Simple Filter Logic for the Library
+        const searchInput = document.getElementById('libSearch');
+        const cards = document.querySelectorAll('.protocol-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            
+            cards.forEach(card => {
+                const titleData = card.getAttribute('data-title') || "";
+                const content = card.innerText.toLowerCase();
+                
+                if (titleData.includes(term) || content.includes(term)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
 </html>
