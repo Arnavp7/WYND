@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Library | WYND</title>
+    <style>
+        /* --- CORE AESTHETICS --- */
+        :root {
+            --bg-color: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #FFD700; 
+            --glass-panel: rgba(255, 255, 255, 0.03);
+            --border-light: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--border-light);
+            background: rgba(5,5,5,0.95);
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--text-primary); }
+
+        /* --- LIBRARY LIST --- */
+        .library-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        /* List Item Style */
+        .protocol-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            background: var(--glass-panel);
+            transition: 0.3s;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .protocol-item:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .item-info h2 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
+        .item-info p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .arrow { color: var(--accent); font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="WYND.html" class="nav-link">← Home</a>
+        <img src="C:\Users\Arnav\Desktop\WYND\WYND Logo.png" alt="WYND" height="45">
+        <div style="width: 50px;"></div> </header>
+
+    <div class="library-container">
+        <h1>THE ARCHIVE</h1>
+
+        <a href="cold-exposure.html" class="protocol-item">
+            <div class="item-info">
+                <h2>Cold Exposure: The Complete Physiology</h2>
+                <p>Hormonal optimization, fat loss mechanics, and the "Soberg Principle."</p>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Exposure Protocol | WYND</title>
+    <style>
+        /* --- CORE STYLE --- */
+        :root {
+            --bg-color: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #FFD700; 
+            --glass-panel: rgba(255, 255, 255, 0.03);
+            --border-light: rgba(255, 255, 255, 0.1);
+            --input-bg: #111;
+        }
+        body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; }
+        
+        /* HEADER */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; border-bottom: 1px solid var(--border-light); background: rgba(5,5,5,0.95); position: sticky; top: 0; z-index: 100;}
+        .back-btn { color: var(--text-secondary); text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .back-btn:hover { color: var(--accent); }
+
+        /* ARTICLE LAYOUT */
+        .article-content { max-width: 700px; margin: 4rem auto; padding: 0 2rem; }
+        
+        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem; }
+        .tag { color: var(--accent); font-weight: bold; letter-spacing: 1px; font-size: 0.8rem; text-transform: uppercase; }
+        
+        h2 { font-size: 1.8rem; margin-top: 3rem; border-left: 3px solid var(--accent); padding-left: 15px; color: white;}
+        p { color: #ccc; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        ul { color: #ccc; margin-bottom: 2rem; }
+        li { margin-bottom: 0.8rem; }
+
+        /* IMAGE HOLDERS */
+        .img-container {
+            width: 100%;
+            height: 350px; 
+            background: #111;
+            border: 1px solid var(--border-light);
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .caption { font-size: 0.8rem; color: #777; text-align: center; margin-top: -1.5rem; margin-bottom: 2rem; font-style: italic;}
+
+        /* CALLOUT */
+        .callout { background: rgba(255, 215, 0, 0.05); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,215,0,0.2); margin: 3rem 0; }
+        
+        /* FOOTER & NEWSLETTER */
+        footer {
+            margin-top: 6rem;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(10,10,10,0), rgba(20,20,20,1));
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .newsletter-box h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            color: var(--text-secondary);
+        }
+
+        .benefit-item span { color: var(--accent); margin-right: 8px; }
+
+        .form-input {
+            padding: 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-light);
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+            box-sizing: border-box; 
+        }
+
+        .submit-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 1rem 3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="protocols.html" class="back-btn">← Back to Library</a>
+        <img src="WYND Logo.png" alt="WYND" height="45">
+    </header>
+
+    <article class="article-content">
+        <span class="tag">Recovery • 8 Min Read</span>
+        <h1>Thermodynamics of Biology: The Cold Exposure Guide</h1>
+        
+        <p>Cold exposure is not about mental toughness. It is a precise lever for neurochemical manipulation and metabolic efficiency. When executed correctly, it alters the production of catecholamines, regulates glycemic control, and resets circadian clocks.</p>
+
+        <div class="img-container">
+            <img src="article1_1.jpg" alt="Graph showing dopamine release curve over 3 hours">
+        </div>
+        <p class="caption">Figure 1: The sustained 250% increase in Dopamine relative to baseline.</p>
+
+        <h2>1. The Neurochemical Impact</h2>
+        <p>Upon submersion in cold water (approx. 50°F / 10°C), the body activates the "diving reflex." This triggers a massive release of norepinephrine (focus/agitation) and dopamine (drive). Unlike the sharp spike of caffeine or sugar, cold-induced dopamine rises slowly and stays elevated for hours.</p>
+        <p>This creates a state of "Calm Agitation"—the ideal biological state for deep work and high-output cognitive tasks.</p>
+
+        <h2>2. Hormones & Metabolism</h2>
+        <p>Cold exposure activates Brown Adipose Tissue (BAT). Unlike white fat (storage), brown fat is a mitochondrial furnace. It burns glucose and white fat to create heat (thermogenesis).</p>
+        <ul>
+            <li><strong>Insulin Sensitivity:</strong> Regular exposure improves how your body processes blood sugar.</li>
+            <li><strong>Testosterone:</strong> While cold icing the testes is a popular internet trend, the real benefit comes from lowering core body temperature before sleep, which deepens Delta Wave sleep—the primary window for Growth Hormone release.</li>
+        </ul>
+
+        <div class="img-container">
+            <img src="article1_2.jpg" alt="Chart showing Brown Fat activation vs White Fat">
+        </div>
+        <p class="caption">Figure 2: Thermogenic activity of Brown Adipose Tissue.</p>
+
+        <h2>3. The Hypertrophy Trade-off (Training)</h2>
+        <p>This is where most people fail. Cold exposure is a potent anti-inflammatory. While this sounds good, muscle growth (Hypertrophy) <em>requires</em> acute inflammation to signal repair.</p>
+        
+        <div class="callout">
+            <strong>⚠️ The Golden Rule:</strong> NEVER do cold immersion in the 4 hours <em>after</em> hypertrophy training. You will blunt the anabolic signal and reduce strength gains.
+        </div>
+        
+        <p><strong>The Fix:</strong> Use cold exposure pre-workout (for cooling the core to increase volume capacity) or on rest days/cardio days.</p>
+
+        <h2>4. The Protocol (Søberg Principle)</h2>
+        <p>Based on the latest data, you do not need to freeze every day. The minimum effective dose is specific:</p>
+        <ul>
+            <li><strong>Total Duration:</strong> 11 minutes per week (divided into 2-4 sessions).</li>
+            <li><strong>Temperature:</strong> Uncomfortably cold to the point where you want to get out, but safe.</li>
+            <li><strong>Ending:</strong> End with cold. If you take a warm shower immediately after, you blunt the metabolic effect. Let your body reheat itself naturally (Shivering is good).</li>
+        </ul>
+
+        <div class="img-container">
+            <img src="article1_3.jpg" alt="Visual Calendar of Weekly Protocol">
+        </div>
+        <p class="caption">Figure 3: The Optimized Weekly Schedule.</p>
+
+    </article>
+
+    <footer>
+        <div class="newsletter-box">
+            <h2>Subscribe to the <span style="color: var(--accent);">WYND Protocol</span></h2>
+            <p>Join the inner circle. It's free.</p>
+            
+            <div class="benefits">
+                <div class="benefit-item"><span>⚡</span> Free Notion Templates</div>
+                <div class="benefit-item"><span>📄</span> Protocol PDFs</div>
+                <div class="benefit-item"><span>🧬</span> Research Updates</div>
+            </div>
+
+            <form id="newsletter-form" style="display: flex; gap: 10px; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required style="width: 300px; margin-bottom: 0;">
+                <button type="submit" id="submit-btn" class="submit-btn" style="padding: 1rem 2rem;">JOIN</button>
+            </form>
+            
+            <div id="form-message" style="margin-top: 1rem; color: var(--accent); font-weight: bold; height: 20px;"></div>
+            
+            <p style="font-size: 0.8rem; color: #555; margin-top: 3rem;">© 2026 WYND Protocol. Educational Use Only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- n8n WEBHOOK INTEGRATION ---
+        const newsletterForm = document.getElementById('newsletter-form');
+        const emailInput = document.getElementById('email-input');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop page reload
+
+            // 1. Get the email
+            const email = emailInput.value;
+            // 2. Metadata: We track that this signup came from the Article page
+            const source = "cold-exposure-article"; 
+
+            // 3. UX: Change button text
+            submitBtn.textContent = "JOINING...";
+            submitBtn.disabled = true;
+
+            // 4. SEND TO n8n
+            // REPLACE THE URL BELOW WITH YOUR ACTUAL n8n WEBHOOK URL
+            const webhookUrl = 'https://ap1712.app.n8n.cloud/webhook/14773769-8d46-4281-9747-0782e64475c6'; 
+
+            try {
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Prevents browser blocking, but hides response details
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        email: email,
+                        source: source
+                    })
+                });
+
+                // 5. Success Message
+                formMessage.style.color = "#FFD700";
+                formMessage.textContent = "Welcome to the Protocol. Check your inbox.";
+                emailInput.value = ""; // Clear input
+                submitBtn.textContent = "JOINED";
+
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.style.color = "red";
+                formMessage.textContent = "Connection error. Please try again.";
+                submitBtn.textContent = "JOIN";
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
