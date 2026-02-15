@@ -169,16 +169,39 @@
             margin-top: 4px;
         }
 
-        /* Fixed Signature Visibility */
+        /* --- METALLIC SILVER SIGNATURE --- */
         .signature-space {
             font-family: 'Allura', cursive;
-            font-size: 3rem; /* Large size */
-            color: var(--accent); /* GOLD color for visibility */
+            font-size: 3.5rem; /* Large size */
+            
+            /* The Silver Gradient Effect */
+            background: linear-gradient(
+                to right,
+                #bcc6cc 0%,
+                #ebebeb 25%,
+                #a5a5a5 50%,
+                #ebebeb 75%,
+                #bcc6cc 100%
+            );
+            
+            /* Clips background to text */
+            -webkit-background-clip: text;
+            background-clip: text;
+            
+            /* Makes text transparent to show gradient */
+            -webkit-text-fill-color: transparent;
+            color: transparent; 
+            
+            /* Layout & Position */
             min-width: 150px;
             border-bottom: 1px solid #333;
             text-align: right;
             padding-bottom: 5px;
             line-height: 1.2;
+            display: inline-block;
+            
+            /* Glitter Glow */
+            filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.4));
         }
 
         @media (max-width: 768px) {
