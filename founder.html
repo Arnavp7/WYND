@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Founder's Note | WYND</title>
     
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Arnavp7/WYND/main/small%20logo%20for%20browser.png">
+    <link rel="icon" type="image/png" href="small%20logo%20for%20browser.png">
 
     <meta name="description" content="A note from the founder of WYND. Converting publicly available protocols into compounding habits.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Arnavp7/WYND/main/WYND%20Logo.png">
+    <meta property="og:image" content="WYND%20Logo.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -20,8 +19,6 @@
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --accent: #FFD700;
-            --glass-panel: rgba(255, 255, 255, 0.03);
-            --border-light: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -39,7 +36,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 3rem;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(5,5,5,0.95);
         }
 
@@ -53,7 +50,7 @@
         }
         .back-link:hover { color: var(--accent); }
 
-        /* --- MAIN LAYOUT --- */
+        /* --- LAYOUT --- */
         .founder-container {
             max-width: 1100px;
             margin: 6rem auto;
@@ -64,7 +61,7 @@
             align-items: center;
         }
 
-        /* --- LEFT SIDE: TEXT --- */
+        /* --- TEXT --- */
         h1 {
             font-size: 3.5rem;
             line-height: 1;
@@ -88,7 +85,6 @@
             border-bottom: 1px solid var(--accent);
         }
 
-        /* --- QUOTE BLOCK --- */
         blockquote {
             border-left: 3px solid var(--accent);
             margin: 2.5rem 0;
@@ -108,10 +104,9 @@
             color: var(--text-secondary);
             font-style: normal;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* --- RIGHT SIDE: PHOTO & AMBIENT GLOW --- */
+        /* --- PHOTO --- */
         .photo-wrapper {
             position: relative;
             display: flex;
@@ -127,8 +122,6 @@
             border-radius: 12px;
             overflow: hidden;
             position: relative;
-            
-            /* GOLD AMBIENT GLOW */
             border: 1px solid rgba(255, 215, 0, 0.3);
             box-shadow: 0 0 40px rgba(255, 215, 0, 0.15); 
             transition: all 0.5s ease;
@@ -143,12 +136,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.9; 
-            transition: opacity 0.5s;
+            opacity: 0.9;
         }
-        .img-frame:hover img { opacity: 1; }
 
-        /* --- IDENTITY BLOCK --- */
+        /* --- IDENTITY & SIGNATURE --- */
         .identity-block {
             width: 100%;
             max-width: 400px;
@@ -178,19 +169,18 @@
             margin-top: 4px;
         }
 
-        /* --- SIGNATURE FIX --- */
+        /* Fixed Signature Visibility */
         .signature-space {
-            font-family: 'Allura', cursive; 
-            font-size: 3rem; /* Made significantly larger */
-            color: var(--accent); /* GOLD color */
+            font-family: 'Allura', cursive;
+            font-size: 3rem; /* Large size */
+            color: var(--accent); /* GOLD color for visibility */
             min-width: 150px;
-            border-bottom: 1px solid #333; 
+            border-bottom: 1px solid #333;
             text-align: right;
             padding-bottom: 5px;
-            line-height: 1; 
+            line-height: 1.2;
         }
 
-        /* --- MOBILE --- */
         @media (max-width: 768px) {
             .founder-container {
                 grid-template-columns: 1fr;
@@ -207,7 +197,7 @@
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="https://raw.githubusercontent.com/Arnavp7/WYND/main/WYND%20Logo.png" alt="WYND" height="40">
+                <img src="WYND%20Logo.png" alt="WYND" height="40">
             </a>
         </div>
         <a href="index.html" class="back-link">Return to Base</a>
@@ -217,27 +207,20 @@
         
         <div class="text-column">
             <h1>SIGNAL IN THE NOISE.</h1>
-            
             <p>We live in an age of infinite leverage. The tools to optimize our biology, automate our wealth, and engineer our focus are publicly available. They are hiding in plain sight.</p>
-            
             <p>Yet, most people drown in the information without ever applying the protocol.</p>
-
             <p>I founded <span class="highlight">WYND</span> with a singular motive: to curate the highest-signal tools available and provide the framework to apply them strategically.</p>
-
             <p>It is not enough to know <em>how</em> to optimize. You must structure these protocols so they cease to be tasks and become automated behaviors.</p>
-
             <blockquote>
                 "Habits are the compound interest of self-improvement. The same way that money multiplies through compound interest, the effects of your habits multiply as you repeat them."
                 <cite>— James Clear, Atomic Habits</cite>
             </blockquote>
-
             <p>We do not seek shortcuts. We seek systems. Welcome to the protocol.</p>
         </div>
 
         <div class="photo-wrapper">
-            
             <div class="img-frame">
-                <img src="https://raw.githubusercontent.com/Arnavp7/WYND/main/arnpandey.png" alt="Arnav Pandey">
+                <img src="arnpandey.png" alt="Arnav Pandey">
             </div>
 
             <div class="identity-block">
@@ -245,15 +228,10 @@
                     <div class="founder-name">Arnav Pandey</div>
                     <span class="founder-title">FOUNDER, WYND</span>
                 </div>
-                
-                <div class="signature-space">
-                    ArnavP.
-                </div>
+                <div class="signature-space">ArnavP.</div>
             </div>
-
         </div>
 
     </main>
-
 </body>
 </html>
