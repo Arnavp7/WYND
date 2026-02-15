@@ -19,6 +19,8 @@
             --text-primary: #ffffff;
             --text-secondary: #a0a0a0;
             --accent: #FFD700;
+            --input-bg: #111;
+            --border-light: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -36,7 +38,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-light);
             background: rgba(5,5,5,0.95);
         }
 
@@ -169,12 +171,10 @@
             margin-top: 4px;
         }
 
-        /* --- METALLIC SILVER SIGNATURE (FIXED) --- */
+        /* CHROME SILVER SIGNATURE */
         .signature-space {
             font-family: 'Allura', cursive;
             font-size: 3.5rem; 
-            
-            /* TRUE CHROME GRADIENT: Dark Grey -> Bright White -> Dark Grey */
             background: linear-gradient(
                 45deg,
                 #777777 0%,
@@ -183,23 +183,76 @@
                 #e0e0e0 75%,
                 #777777 100%
             );
-            
             -webkit-background-clip: text;
             background-clip: text;
-            
-            /* FORCE TRANSPARENCY so gradient shows */
             -webkit-text-fill-color: transparent;
             color: transparent; 
-            
             min-width: 150px;
             border-bottom: 1px solid #333;
             text-align: right;
             padding-bottom: 5px;
             line-height: 1.2;
             display: inline-block;
-            
-            /* WHITE GLOW only (Removed any gold tint) */
             filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.8));
+        }
+
+        /* --- FOOTER STYLES --- */
+        footer {
+            margin-top: 6rem;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(10,10,10,0), rgba(20,20,20,1));
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .newsletter-box h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            color: var(--text-secondary);
+        }
+
+        .benefit-item span { color: var(--accent); margin-right: 8px; }
+
+        .form-input {
+            padding: 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-light);
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+            box-sizing: border-box; 
+        }
+
+        .submit-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 1rem 3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            color: #888;
         }
 
         @media (max-width: 768px) {
@@ -254,5 +307,60 @@
         </div>
 
     </main>
+
+    <footer>
+        <div class="newsletter-box">
+            <h2>Subscribe to the <span style="color: var(--accent);">WYND Protocol</span></h2>
+            <p>Join the inner circle. It's free.</p>
+            
+            <div class="benefits">
+                <div class="benefit-item"><span>⚡</span> Free Notion Templates</div>
+                <div class="benefit-item"><span>📄</span> Protocol PDFs</div>
+                <div class="benefit-item"><span>🧬</span> Research Updates</div>
+            </div>
+
+            <form id="newsletter-form" style="display: flex; gap: 10px; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required style="width: 300px; margin-bottom: 0;">
+                <button type="submit" id="submit-btn" class="submit-btn" style="padding: 1rem 2rem;">JOIN</button>
+            </form>
+            <div id="form-message" style="margin-top: 1rem; color: var(--accent); font-weight: bold; height: 20px;"></div>
+        </div>
+    </footer>
+
+    <script>
+        const newsletterForm = document.getElementById('newsletter-form');
+        const emailInput = document.getElementById('email-input');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = emailInput.value;
+            const source = "founder_page"; // Tracks that they signed up from here
+            submitBtn.textContent = "JOINING...";
+            submitBtn.disabled = true;
+
+            const webhookUrl = 'https://ap1712.app.n8n.cloud/webhook/14773769-8d46-4281-9747-0782e64475c6'; 
+
+            try {
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ email: email, source: source })
+                });
+                formMessage.style.color = "#FFD700";
+                formMessage.textContent = "Welcome to the Protocol. Check your inbox.";
+                emailInput.value = ""; 
+                submitBtn.textContent = "JOINED";
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.style.color = "red";
+                formMessage.textContent = "Connection error. Please try again.";
+                submitBtn.textContent = "JOIN";
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
