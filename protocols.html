@@ -6,10 +6,10 @@
     
     <title>Protocol Library | WYND</title>
     
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Arnavp7/WYND/main/small%20logo%20for%20browser.png">
+    <link rel="icon" type="image/png" href="small%20logo%20for%20browser.png">
 
     <meta name="description" content="The complete library of WYND protocols. Cold exposure, smelling salts, and biological optimization strategies.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/Arnavp7/WYND/main/WYND%20Logo.png">
+    <meta property="og:image" content="WYND%20Logo.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -82,8 +82,67 @@
             filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
         }
 
-        .search-wrapper { display: flex; justify-content: flex-end; }
-        /* Hidden search on this page to keep it clean, or keep standard styling */
+        /* --- SEARCH STYLES --- */
+        .search-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .search-bar {
+            background: var(--glass-panel);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
+            color: white;
+            width: 180px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus {
+            border-color: var(--accent);
+            width: 240px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .search-results-container {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            width: 280px;
+            background: rgba(10, 10, 10, 0.98);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1001;
+            text-align: left;
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+        }
+
+        .search-result-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: white;
+        }
+
+        .highlight-match {
+            color: var(--accent);
+            font-weight: bold;
+        }
         
         /* --- HERO --- */
         .hero {
@@ -121,10 +180,9 @@
             margin: 0 auto 6rem;
         }
 
-        /* Clickable Card Styling */
         .article-card {
-            display: block; /* Makes anchor tag a block */
-            text-decoration: none; /* Removes underline */
+            display: block;
+            text-decoration: none;
             background: var(--glass-panel);
             border: 1px solid var(--border-light);
             padding: 2.5rem;
@@ -171,6 +229,53 @@
         
         .article-card:hover .read-more { text-decoration: underline; }
 
+        /* --- CONTACT SECTION (EMBEDDED) --- */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto 6rem auto;
+            padding: 2rem;
+            background: var(--glass-panel);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-light);
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-family: inherit;
+            box-sizing: border-box; 
+        }
+
+        .submit-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 1rem 3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            color: #888;
+        }
+
         /* --- FOOTER --- */
         footer {
             margin-top: auto;
@@ -183,16 +288,14 @@
         .newsletter-box h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
         .benefits { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; color: var(--text-secondary); }
         .benefit-item span { color: var(--accent); margin-right: 8px; }
-        
-        .form-input { padding: 1rem; background: var(--input-bg); border: 1px solid var(--border-light); color: white; border-radius: 6px; width: 300px; }
-        .submit-btn { background: white; color: black; border: none; padding: 1rem 3rem; font-weight: 800; cursor: pointer; border-radius: 4px; transition: 0.3s; text-transform: uppercase; }
-        .submit-btn:hover { background: var(--accent); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
 
         @media (max-width: 768px) {
             header { grid-template-columns: 1fr; gap: 1rem; position: relative; }
             .logo-container { order: 1; margin-bottom: 1rem; }
             nav { order: 2; justify-content: center; width: 100%; }
+            .search-wrapper { order: 3; justify-content: center; width: 100%; }
             h1 { font-size: 2.5rem; }
+            .contact-container { margin: 0 1rem 6rem 1rem; }
         }
     </style>
 </head>
@@ -202,15 +305,16 @@
         <nav>
             <a href="protocols.html" class="active">Protocols</a>
             <a href="founder.html">Founder</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="#contact-section">Contact</a>
         </nav>
 
         <div class="logo-container" onclick="window.location.href='index.html'">
-            <img src="https://raw.githubusercontent.com/Arnavp7/WYND/main/WYND%20Logo.png" alt="WYND" class="logo-img">
+            <img src="WYND%20Logo.png" alt="WYND" class="logo-img">
         </div>
 
         <div class="search-wrapper">
-            <div style="width: 100px;"></div> 
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search Protocols...">
+            <div class="search-results-container" id="searchResults"></div>
         </div>
     </header>
 
@@ -237,7 +341,24 @@
                 <div class="read-more">Read Protocol →</div>
             </a>
 
-            </div>
+        </div>
+
+        <div id="contact-section" class="contact-container">
+            <h1 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">CONTACT US</h1>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Have a protocol request or inquiry? Direct line to the lab.
+            </p>
+            
+            <form id="contact-form">
+                <input type="text" id="contact-name" class="form-input" placeholder="Name" required>
+                <input type="email" id="contact-email" class="form-input" placeholder="Email" required>
+                <textarea id="contact-msg" class="form-textarea" rows="5" placeholder="Inquiry" required></textarea>
+                
+                <button type="submit" id="contact-btn" class="submit-btn">Send Message</button>
+                <div id="contact-message" style="margin-top: 1rem; color: var(--accent); font-weight: bold; height: 20px; text-align: center;"></div>
+            </form>
+        </div>
+
     </main>
 
     <footer>
@@ -252,15 +373,59 @@
             </div>
 
             <form id="newsletter-form" style="display: flex; gap: 10px; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
-                <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required>
-                <button type="submit" id="submit-btn" class="submit-btn">JOIN</button>
+                <input type="email" id="email-input" class="form-input" placeholder="Enter your email" required style="width: 300px; margin-bottom: 0;">
+                <button type="submit" id="submit-btn" class="submit-btn" style="width: auto;">JOIN</button>
             </form>
             <div id="form-message" style="margin-top: 1rem; color: var(--accent); font-weight: bold; height: 20px;"></div>
         </div>
     </footer>
 
     <script>
-        // --- NEWSLETTER WEBHOOK ---
+        // --- 1. SEARCH LOGIC ---
+        const articles = [
+            { title: "Cold Exposure: Physiology & Protocols", url: "cold-exposure.html" },
+            { title: "Smelling Salts: Neurological Arousal & Performance", url: "smelling-salts.html" }
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsContainer = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            resultsContainer.innerHTML = ''; 
+
+            if (query.length === 0) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+
+            const matches = articles.filter(article => 
+                article.title.toLowerCase().includes(query)
+            );
+
+            if (matches.length > 0) {
+                resultsContainer.style.display = 'block';
+                matches.forEach(match => {
+                    const link = document.createElement('a');
+                    link.href = match.url;
+                    link.className = 'search-result-item';
+                    const regex = new RegExp(`(${query})`, 'gi');
+                    const highlightedTitle = match.title.replace(regex, '<span class="highlight-match">$1</span>');
+                    link.innerHTML = highlightedTitle;
+                    resultsContainer.appendChild(link);
+                });
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+
+        // --- 2. NEWSLETTER WEBHOOK ---
         const newsletterForm = document.getElementById('newsletter-form');
         const emailInput = document.getElementById('email-input');
         const submitBtn = document.getElementById('submit-btn');
@@ -292,6 +457,62 @@
                 formMessage.textContent = "Connection error. Please try again.";
                 submitBtn.textContent = "JOIN";
                 submitBtn.disabled = false;
+            }
+        });
+
+        // --- 3. CONTACT FORM WEBHOOK ---
+        const contactForm = document.getElementById('contact-form');
+        const contactName = document.getElementById('contact-name');
+        const contactEmail = document.getElementById('contact-email');
+        const contactMsg = document.getElementById('contact-msg');
+        const contactBtn = document.getElementById('contact-btn');
+        const contactMessage = document.getElementById('contact-message');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = contactName.value;
+            const email = contactEmail.value;
+            const message = contactMsg.value;
+            const source = "protocols_contact_form";
+
+            contactBtn.textContent = "SENDING...";
+            contactBtn.disabled = true;
+
+            const contactWebhookUrl = 'https://ap1712.app.n8n.cloud/webhook/28b26e46-a9b9-4864-a94f-efadef9ce11c'; 
+
+            try {
+                await fetch(contactWebhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ 
+                        name: name,
+                        email: email,
+                        message: message,
+                        source: source 
+                    })
+                });
+
+                contactMessage.style.color = "#FFD700";
+                contactMessage.textContent = "Message Received. We will respond shortly.";
+                contactName.value = "";
+                contactEmail.value = "";
+                contactMsg.value = "";
+                contactBtn.textContent = "SENT";
+                
+                setTimeout(() => {
+                    contactBtn.textContent = "Send Message";
+                    contactBtn.disabled = false;
+                    contactMessage.textContent = "";
+                }, 3000);
+
+            } catch (error) {
+                console.error('Error:', error);
+                contactMessage.style.color = "red";
+                contactMessage.textContent = "Connection error. Please try again.";
+                contactBtn.textContent = "Send Message";
+                contactBtn.disabled = false;
             }
         });
     </script>
